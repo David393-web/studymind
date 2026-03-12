@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar { width: 4px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+}
+
+/* Markdown rendered content */
+.prose-study h2,
+.prose-study h3 { @apply font-display font-bold text-ink mt-5 mb-2; }
+.prose-study h2 { @apply text-lg; }
+.prose-study h3 { @apply text-base; }
+.prose-study p  { @apply mb-3 leading-relaxed text-sm; }
+.prose-study ul,
+.prose-study ol { @apply pl-5 mb-3 text-sm; }
+.prose-study li { @apply mb-1; }
+.prose-study code { @apply font-mono text-xs bg-cream border border-border px-1.5 py-0.5 rounded; }
+.prose-study pre { @apply bg-ink rounded-xl p-4 overflow-x-auto my-3; }
+.prose-study pre code { @apply bg-transparent border-0 p-0 text-amber text-xs; }
+.prose-study blockquote { @apply border-l-4 border-amber pl-4 italic text-muted my-3 text-sm; }
+.prose-study strong { @apply font-semibold text-ink; }

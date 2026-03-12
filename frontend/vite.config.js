@@ -13,11 +13,3 @@ export default defineConfig({
     },
   },
 });
-```
-
----
-
-**Step 4 — Add the env variable on Vercel too**
-In your **frontend** Vercel project → Settings → Environment Variables → add:
-```
-VITE_API_URL = https://studymind-9jt1.vercel.app/

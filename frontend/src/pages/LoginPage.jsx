@@ -27,26 +27,26 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-paper flex">
+    <div className="flex min-h-screen bg-paper">
       {/* Left brand panel */}
-      <div className="hidden lg:flex w-1/2 bg-ink flex-col justify-between p-12">
+      <div className="flex-col justify-between hidden w-1/2 p-12 lg:flex bg-ink">
         <div className="flex items-center gap-2">
           <BookOpen className="text-amber" size={20} />
-          <span className="font-display text-2xl font-black text-paper">
+          <span className="text-2xl font-black font-display text-paper">
             Study<span className="text-amber">Mind</span>
           </span>
         </div>
         <div>
-          <h1 className="font-display text-5xl font-black text-paper leading-tight mb-4">
+          <h1 className="mb-4 text-5xl font-black leading-tight font-display text-paper">
             Your AI<br />University<br /><span className="text-amber">Tutor.</span>
           </h1>
-          <p className="text-paper/50 text-sm leading-relaxed max-w-xs">
+          <p className="max-w-xs text-sm leading-relaxed text-paper/50">
             Expert explanations for any university-level subject — from quantum mechanics to differential equations.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
           {['Mathematics', 'Science', 'Programming', 'Economics'].map((s) => (
-            <span key={s} className="text-xs font-mono text-paper/30 border border-paper/10 px-3 py-1 rounded-full">
+            <span key={s} className="px-3 py-1 font-mono text-xs border rounded-full text-paper/30 border-paper/10">
               {s}
             </span>
           ))}
@@ -54,20 +54,20 @@ export default function LoginPage() {
       </div>
 
       {/* Right form */}
-      <div className="flex-1 flex items-center justify-center p-8">
+      <div className="flex items-center justify-center flex-1 p-8">
         <div className="w-full max-w-md">
-          <h2 className="font-display text-3xl font-bold text-ink mb-1">Welcome back</h2>
-          <p className="text-muted text-sm mb-8">Sign in to continue studying</p>
+          <h2 className="mb-1 text-3xl font-bold font-display text-ink">Welcome back</h2>
+          <p className="mb-8 text-sm text-muted">Sign in to continue studying</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block font-mono text-xs uppercase tracking-widest text-muted mb-1.5">Email</label>
               <div className="relative">
-                <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
+                <Mail size={14} className="absolute -translate-y-1/2 left-3 top-1/2 text-muted" />
                 <input
                   type="email" required value={form.email} onChange={set('email')}
                   placeholder="you@university.edu"
-                  className="w-full bg-card border border-border rounded-xl pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-amber transition-colors"
+                  className="w-full py-3 pr-4 text-sm transition-colors border bg-card border-border rounded-xl pl-9 focus:outline-none focus:border-amber"
                 />
               </div>
             </div>
@@ -75,11 +75,11 @@ export default function LoginPage() {
             <div>
               <label className="block font-mono text-xs uppercase tracking-widest text-muted mb-1.5">Password</label>
               <div className="relative">
-                <Lock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
+                <Lock size={14} className="absolute -translate-y-1/2 left-3 top-1/2 text-muted" />
                 <input
                   type="password" required value={form.password} onChange={set('password')}
                   placeholder="••••••••"
-                  className="w-full bg-card border border-border rounded-xl pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-amber transition-colors"
+                  className="w-full py-3 pr-4 text-sm transition-colors border bg-card border-border rounded-xl pl-9 focus:outline-none focus:border-amber"
                 />
               </div>
             </div>
@@ -92,9 +92,9 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <p className="mt-6 text-center text-sm text-muted">
+          <p className="mt-6 text-sm text-center text-muted">
             No account?{' '}
-            <Link to="/register" className="text-amber-dark font-medium hover:underline">Create one</Link>
+            <Link to="/register" className="font-medium text-amber-dark hover:underline">Create one</Link>
           </p>
         </div>
       </div>

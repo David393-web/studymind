@@ -1,18 +1,26 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
+// Point axios to the live backend when deployed
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || '';
+
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [user, setUser]   = useState(null);
+  const [user, setUser]       = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem('sm_token');
     const stored = localStorage.getItem('sm_user');
     if (token && stored) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      setUser(JSON.parse(stored));
+      try {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        setUser(JSON.parse(stored));
+      } catch {
+        localStorage.removeItem('sm_token');
+        localStorage.removeItem('sm_user');
+      }
     }
     setLoading(false);
   }, []);
